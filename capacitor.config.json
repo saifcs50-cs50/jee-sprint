@@ -1,0 +1,10 @@
+{
+  "appId": "com.saif.jeesprint",
+  "appName": "JEE Sprint",
+  "webDir": "dist/android",
+  "android": { "allowMixedContent": false },
+  "plugins": {
+    "SystemBars": { "style": "DEFAULT" },
+    "LocalNotifications": { "smallIcon": "ic_stat_jee", "iconColor": "#2545c4" }
+  }
+}

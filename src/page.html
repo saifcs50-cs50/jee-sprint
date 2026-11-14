@@ -1,0 +1,294 @@
+<nav class="bar" aria-label="Sections">
+  <div class="bar-in">
+    <a href="#now">Now</a><a href="#today">Today</a><a href="#daysoff">Days off</a><a href="#weeks">Weeks</a><a href="#method">Method</a><a href="#mocks">Tests</a><a href="#skip">Skip list</a><a href="#life">Life rules</a><a href="#dates">Dates</a><a href="#materials">Materials</a><a href="#device">Sync</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="banner" id="banner" hidden>This is a read-only copy. Your live tracker is the <strong>JEE Sprint</strong> app on your Mac and phone, which sync with each other.</div>
+
+  <section id="now" aria-label="Countdown and this week">
+    <div class="hero">
+      <div class="count">
+        <p class="eyebrow">JEE Main 2027 · Session 1</p>
+        <div class="big"><span id="days">115</span><span class="unit" id="daysUnit">days</span></div>
+        <p class="sub" id="countSub">until Friday 22 January 2027, the first exam day.</p>
+        <span class="phase" id="phaseLine">Plan starts Thursday 1 October</span>
+        <p class="nownext" id="nowNext" hidden></p>
+        <div class="pace" id="pace" aria-live="polite"></div>
+        <div class="prog" id="prog" aria-label="Chapters done by subject"></div>
+        <p class="save" id="syncState" role="status">Loading your progress…</p>
+      </div>
+      <div class="herocol">
+        <div class="thisweek card" id="thisWeek" aria-live="polite"></div>
+        <div class="catchup card" id="catchUp" aria-live="polite" hidden></div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="brief" aria-labelledby="briefH" data-sum="12 weeks for the syllabus, then 4½ for a second pass, mocks and revision.">
+    <div>
+      <p class="eyebrow">Why it's built this way</p>
+      <h2 id="briefH">The plan in brief</h2>
+    </div>
+    <div class="tl" aria-label="Timeline from October to January">
+      <div class="tl-wrap">
+        <div class="tl-now" id="tlNow" hidden>today</div>
+        <div class="tl-bar" id="tlBar"></div>
+      </div>
+      <div class="tl-months" id="tlMonths"></div>
+      <div class="tl-legend" id="tlLegend"></div>
+    </div>
+
+    <p class="deal">The syllabus gets <strong>12 weeks: 1 October to Sunday 20 December</strong>. After that you have 4½ weeks for a second pass, 8 mocks and revision before Session 1 (22–30 January). Twelve weeks at 3⅓ hours on college days and 8 on Sundays is about <strong>310 hours for 59 chapters, roughly 5 hours each</strong>. That's tight, and it works only if you do four things: 30–40 PYQs per chapter on the first pass (the rest come back in the second pass), skim your class notes for chapters your college has already taught, turn every college holiday into a Sunday, and cut from the drop list without guilt when the pace line says you're behind.</p>
+    <p class="deal muted">Coaching ads promise 99 percentile. If you are starting from close to zero with a long college day, use your own mock trend as the scoreboard. A steady climb from mock to mock is the target. Session 2 in April is a second attempt with 2½ more months behind it.</p>
+  </section>
+
+  <section id="today" aria-labelledby="todayH">
+    <div>
+      <p class="eyebrow" id="todayEyebrow">Today</p>
+      <h2 id="todayH">Your day, hour by hour</h2>
+    </div>
+    <div class="offbar" id="todayOff"></div>
+    <div class="tabs" role="tablist" aria-label="Timetable type" id="ttTabs"></div>
+    <div class="card tt" id="tt" role="tabpanel"></div>
+    <p class="tt-foot" id="ttFoot"></p>
+  </section>
+
+  <section id="daysoff" aria-labelledby="offH">
+    <div>
+      <p class="eyebrow">No college?</p>
+      <h2 id="offH">Days off</h2>
+    </div>
+    <p class="lede">On a day off from college the app runs the Sunday timetable: about 8 hours of study, not 3⅓, and your phone's reminders follow. Connect your college calendar and a weekday with no classes becomes a day off by itself.</p>
+    <div class="card panel" id="daysOffBox"></div>
+  </section>
+
+  <section id="weeks" aria-labelledby="weeksH">
+    <div>
+      <p class="eyebrow">12 weeks of syllabus, then 4½ to sharpen</p>
+      <h2 id="weeksH">All weeks</h2>
+    </div>
+    <p class="lede">Tap a chapter to move it along: not started → learning → done (lecture, PYQs and short notes finished) → revised. The colours match the question palette on the real exam screen. Most weeks carry five or six chapters, and the short ones are paired with big ones so each week comes to about 25–28 hours. Weeks with a Sunday mock carry less.</p>
+    <div class="legend"><span><i class="sq s0"></i>Not started</span><span><i class="sq s1"></i>Learning</span><span><i class="sq s2"></i>Done</span><span><i class="sq s3"></i>Revised</span><span><span class="tag top">Top</span> most-asked</span><span><span class="tag xii">XII</span> also in boards</span></div>
+    <div class="weeks" id="weekList"></div>
+  </section>
+
+  <section id="method" aria-labelledby="methodH" data-sum="Lecture, notes, 30–40 PYQs, short notes, Sunday test.">
+    <div>
+      <p class="eyebrow">Five steps, about 5 hours</p>
+      <h2 id="methodH">How to do one chapter</h2>
+    </div>
+    <ol class="steps">
+      <li class="card"><h3>Learn</h3><span class="hrs">1½–2 h · 1 h if college already taught it</span><p>One lecture from one source at 1.5×. Pause and work every solved example yourself. For chapters your college has already taught, skim your class notes instead of a full lecture.</p></li>
+      <li class="card"><h3>Main notes</h3><span class="hrs">during step 1</span><p>Formulas, reactions and question types. Write what you would forget, not what the teacher said.</p></li>
+      <li class="card"><h3>PYQs</h3><span class="hrs">about 2 h</span><p>30–40 questions, newest years first. The 2024–26 papers match the current syllabus. Stuck for 6 minutes? Read the solution, mark it, redo it in 3 days. The rest of the usual 100–150 come in the second pass (21 Dec – 3 Jan), starting with Top chapters.</p></li>
+      <li class="card"><h3>Short notes</h3><span class="hrs">30 min</span><p>One or two pages, no more. This is what you'll revise from in January, so make it complete.</p></li>
+      <li class="card"><h3>Test</h3><span class="hrs">Sunday</span><p>The Sunday part test covers it. Every wrong answer goes into the mistake log.</p></li>
+    </ol>
+    <div class="cols">
+      <div class="card"><h3>Chemistry</h3><ul><li>Inorganic chapters (Periodic, d & f, Coordination, p-Block, Biomolecules): NCERT line by line <em>is</em> the syllabus. JEE lifts sentences straight from it.</li><li>Organic: one reaction chart per chapter, reagent → product. Revise it on the bus.</li><li>Chemistry is the fastest subject to score in from zero. Aim to make it your strongest.</li></ul></div>
+      <div class="card"><h3>Maths</h3><ul><li>Cap lectures at 90 minutes per topic, then solve. Maths is learned by doing problems.</li><li>Morning Block 1 is where maths problems belong.</li><li>Calculus is a chain: functions → limits → derivatives → integrals → area → differential equations. Keep that order.</li></ul></div>
+      <div class="card"><h3>Physics</h3><ul><li>Draw the diagram before touching a formula.</li><li>One formula sheet per chapter, with units. Reuse any good ones you already have.</li><li>Modern Physics and Semiconductors are the cheapest marks in the paper. Don't skip them.</li></ul></div>
+    </div>
+    <div class="card panel">
+      <h3>The mistake log</h3>
+      <p class="muted">One notebook, one line per wrong or skipped question. Re-read it every Sunday. In January it becomes your most valuable revision material.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Date</th><th>Chapter</th><th>From</th><th>Leak</th><th>The one-line fix</th></tr></thead>
+        <tbody><tr><td class="mono">12 Oct</td><td>Current Electricity</td><td>2025 Jan 22 S1 Q27</td><td>Concept</td><td>Kirchhoff loop: go round in one direction and keep the sign of every drop consistent</td></tr></tbody>
+      </table></div>
+      <p class="muted">The five leaks: <strong>Silly</strong> (knew it, slipped), <strong>Memory</strong> (forgot a formula or fact), <strong>Concept</strong> (didn't understand it), <strong>Time</strong> (solved it, too slowly), <strong>Unattempted</strong> (never tried).</p>
+    </div>
+  </section>
+
+  <section id="mocks" aria-labelledby="mocksH">
+    <div>
+      <p class="eyebrow">Mocks and every other test</p>
+      <h2 id="mocksH">Test log</h2>
+    </div>
+    <p class="lede">Log every test: Sunday part tests, college and coaching tests, chapter tests, subject sprints and full mocks. Scores are compared in percent, so a 25-question test and a 75-question mock sit on the same chart. Full mocks run every other Sunday from 15 Nov to 13 Dec, then every Sunday from 27 Dec, plus a Christmas-week holiday: 8 in all.</p>
+    <div class="mockgrid">
+      <form class="card" id="mockForm" novalidate>
+        <div class="seg" role="radiogroup" aria-label="Kind of test">
+          <label><input type="radio" name="mKind" value="test" checked><span>Test</span></label>
+          <label><input type="radio" name="mKind" value="full"><span>Full mock (75 Q)</span></label>
+        </div>
+        <div class="fgrid">
+          <div class="field"><label for="mDate">Date</label><input id="mDate" type="date" required></div>
+          <div class="field" style="grid-column:span 2"><label for="mPaper">Name</label><input id="mPaper" type="text" maxlength="60" placeholder="Sunday part test"></div>
+        </div>
+        <fieldset id="fsTest">
+          <legend>Subject</legend>
+          <div class="seg" role="radiogroup" aria-label="Subject">
+            <label><input type="radio" name="mSubj" value="P"><span>Physics</span></label>
+            <label><input type="radio" name="mSubj" value="C"><span>Chemistry</span></label>
+            <label><input type="radio" name="mSubj" value="M"><span>Maths</span></label>
+            <label><input type="radio" name="mSubj" value="X" checked><span>Mixed</span></label>
+          </div>
+          <div class="fgrid">
+            <div class="field"><label for="tQ">Questions</label><input id="tQ" type="number" inputmode="numeric" min="1" max="300" step="1" placeholder="25"></div>
+            <div class="field"><label for="tRight">Right</label><input id="tRight" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+            <div class="field"><label for="tWrong">Wrong</label><input id="tWrong" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+            <div class="field"><label for="tPlus">Marks per right</label><input id="tPlus" type="number" inputmode="decimal" min="0.25" max="10" step="0.25" value="4"></div>
+            <div class="field"><label for="tMinus">Minus per wrong</label><input id="tMinus" type="number" inputmode="decimal" min="0" max="10" step="0.25" value="1"></div>
+          </div>
+          <p class="preview" id="tPreview" aria-live="polite">Fill in questions, right and wrong to see the score.</p>
+        </fieldset>
+        <fieldset id="fsFull" hidden>
+          <legend>Marks · each −25 to 100</legend>
+          <div class="fgrid">
+            <div class="field"><label for="mP">Physics</label><input id="mP" type="number" inputmode="numeric" min="-25" max="100" step="1"></div>
+            <div class="field"><label for="mC">Chemistry</label><input id="mC" type="number" inputmode="numeric" min="-25" max="100" step="1"></div>
+            <div class="field"><label for="mM">Maths</label><input id="mM" type="number" inputmode="numeric" min="-25" max="100" step="1"></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Questions lost to each leak (optional)</legend>
+          <div class="fgrid">
+            <div class="field"><label for="lSilly">Silly</label><input id="lSilly" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+            <div class="field"><label for="lMemory">Memory</label><input id="lMemory" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+            <div class="field"><label for="lConcept">Concept</label><input id="lConcept" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+            <div class="field"><label for="lTime">Time</label><input id="lTime" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+            <div class="field"><label for="lUnatt">Unattempted</label><input id="lUnatt" type="number" inputmode="numeric" min="0" max="300" step="1"></div>
+          </div>
+        </fieldset>
+        <div class="formfoot"><button class="btn" type="submit" id="mSubmit">Log test</button><span class="msg" id="mockMsg" role="status"></span></div>
+      </form>
+      <div class="card panel">
+        <h3>Your trend</h3>
+        <div class="tabs" id="mockFilter" role="group" aria-label="Which tests to show"></div>
+        <div class="chart" id="chart"></div>
+        <div class="leaks" id="leaks"></div>
+        <div class="scroll" id="mockTable"></div>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <h3>Exam hall: three rounds</h3>
+        <ol class="plain">
+          <li><strong>Round 1, about 75 min.</strong> Go through all 75 questions. Answer only what you're sure of. Start with Chemistry (it's the fastest), then your stronger of Maths and Physics.</li>
+          <li><strong>Round 2, about 75 min.</strong> Questions you know how to start.</li>
+          <li><strong>Round 3, last 30 min.</strong> Check marked answers, then make careful guesses.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>When to guess</h3>
+        <p>Every question is +4 / −1, and since 2025 that includes the numericals. 25 per subject (20 MCQ + 5 numerical), all compulsory, 300 marks.</p>
+        <div class="scroll"><table>
+          <thead><tr><th>MCQ situation</th><th class="num">Expected marks</th></tr></thead>
+          <tbody>
+            <tr><td>Two options eliminated</td><td class="num">+1.50</td></tr>
+            <tr><td>One option eliminated</td><td class="num">+0.67</td></tr>
+            <tr><td>Blind guess</td><td class="num">+0.25</td></tr>
+            <tr><td>Numerical, guessed</td><td class="num">≈ −1</td></tr>
+          </tbody>
+        </table></div>
+        <p class="muted">So guess an MCQ once you can rule out one option. Never guess a numerical.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skip" aria-labelledby="skipH" data-sum="9 chemistry, 6 physics and 4 maths topics you don't need to study.">
+    <div>
+      <p class="eyebrow">Checked against NTA's official syllabus PDF</p>
+      <h2 id="skipH">Topics cut from JEE Main</h2>
+    </div>
+    <p class="lede">Popular prep lists still show eight of these as Chemistry priorities, and a Physics list includes Communication Systems. They were cut in 2024, and none appear in the current syllabus text. That's about 15 hours you don't need to spend. The 2027 syllabus comes with the October bulletin; check it for changes, but these cuts have held for three years.</p>
+    <div class="skip">
+      <div class="card"><h3>Chemistry</h3><ul class="plain">
+        <li>States of Matter (gas laws)</li><li>Solid State <span class="onlist">on prep lists</span></li><li>Surface Chemistry <span class="onlist">on prep lists</span></li><li>Hydrogen <span class="onlist">on prep lists</span></li><li>s-Block <span class="onlist">on prep lists</span></li><li>Metallurgy <span class="onlist">on prep lists</span></li><li>Environmental Chemistry <span class="onlist">on prep lists</span></li><li>Polymers <span class="onlist">on prep lists</span></li><li>Chemistry in Everyday Life <span class="onlist">on prep lists</span></li>
+      </ul></div>
+      <div class="card"><h3>Physics</h3><ul class="plain">
+        <li>Communication Systems <span class="onlist">on prep lists</span></li><li>Earth's magnetism (dip, declination)</li><li>Hysteresis, retentivity, coercivity</li><li>Cyclotron</li><li>Toroid</li><li>Resolving power of microscopes and telescopes</li>
+      </ul></div>
+      <div class="card"><h3>Maths</h3><ul class="plain">
+        <li>Mathematical Reasoning</li><li>Mathematical Induction</li><li>Binary operations</li><li>Bernoulli trials and Binomial distribution</li><li class="keep"><strong>Linear Programming:</strong> board exam only. Do it in February.</li>
+      </ul></div>
+      <div class="card"><h3>The reverse trap</h3><p class="muted">These are still in JEE but NCERT dropped them, so learn them from notes or lectures:</p><ul class="plain">
+        <li class="keep">Hydrogen spectral series + Rydberg formula</li><li class="keep">Brewster's law</li><li class="keep">Fringe width β = λD/d</li><li class="keep">Area between two curves</li><li class="keep">Probability distribution: mean and variance</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section id="life" aria-labelledby="lifeH" data-sum="Sleep, phone, projects, and what to cut when you fall behind.">
+    <div>
+      <p class="eyebrow">Everything else</p>
+      <h2 id="lifeH">Life rules until 30 January</h2>
+    </div>
+    <div class="cols">
+      <div class="card" style="grid-column:1/-1">
+        <ol class="rules">
+          <li><div><strong>Sleep 7 hours, every night.</strong> 22:30 to 05:30. Your brain stores the day's learning while you sleep, so cutting sleep deletes the evening you just studied.</div></li>
+          <li><div><strong>Phone outside the room during every block.</strong> Instagram: uninstall it until 30 January, or keep it to DMs only. Uninstalling takes ten seconds. JEE reels feel like studying and aren't. This app is your plan now.</div></li>
+          <li><div><strong>Anything that eats evenings is paused until 30 January.</strong> Gaming, long YouTube sessions, side projects. They'll still be there after the exam.</div></li>
+          <li><div><strong>One teacher per subject.</strong> Pick your lecture source this week and don't switch. Hopping between sources is the most common way late starters lose November.</div></li>
+          <li><div><strong>Make college count twice.</strong> If college teaches a chapter this week, swap it into your plan so those hours double up. College tests are free mocks; analyse them like Sunday ones.</div></li>
+          <li><div><strong>Show your parents this timetable.</strong> Ask them to protect 19:45–22:15 and Sunday mornings.</div></li>
+          <li><div><strong>Move every day.</strong> A 15-minute walk after college, sport on Sunday evening.</div></li>
+          <li><div><strong>Holidays are what make 12 weeks possible.</strong> Every college holiday runs the Sunday timetable: about 5 extra hours each. Give them to the week's biggest chapter.</div></li>
+          <li><div><strong>Bad day?</strong> Don't borrow from sleep. Push the unfinished chapter into Sunday's first block. Still behind at the end of the week? Cut from the list below, starting at the top.</div></li>
+          <li><div><strong>Sunday 17:30–20:00 is off.</strong> This is what makes 16 weeks survivable.</div></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>If you fall behind, cut in this order</h3>
+        <p class="muted">Unfinished chapters carry over to the top of the app with a Skip button. When you're more than 3 behind, skip in this order, so the 20 December finish holds. Skipped chapters wait for the buffer weeks (21 Dec – 3 Jan).</p>
+        <ol class="drop">
+          <li>Ellipse and Hyperbola (keep Parabola)</li>
+          <li>Trigonometry beyond identities</li>
+          <li>Physics low set: Solids, Thermal Properties, Experimental Skills</li>
+          <li>Rotational Motion beyond moment of inertia and rolling</li>
+          <li>Ionic Equilibrium numericals</li>
+          <li>p-Block Groups 13–14</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>After Session 1</h3>
+        <ul class="plain">
+          <li><strong>31 Jan to boards: board mode.</strong> Write full answers, because board marks come from steps. Use your board's question bank and model papers.</li>
+          <li><strong>Why boards matter:</strong> NITs and IIITs through JoSAA need 75% in Class 12 (or top 20 percentile of your board). Some state entrance exams also weigh board marks in their ranks, so check yours.</li>
+          <li><strong>After boards:</strong> Session 2 in April, plus any state entrance exam you plan to sit. Same routine, same mistake log.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="dates" aria-labelledby="datesH" data-sum="Registration late Oct · Session 1 on 22–30 Jan · boards Feb–Mar.">
+    <div>
+      <p class="eyebrow">Put these in your calendar</p>
+      <h2 id="datesH">Key dates</h2>
+    </div>
+    <div class="card panel dates">
+      <div class="date"><div class="when">4th week of Oct<span class="est">expected</span></div><div>Session 1 registration opens at <span class="mono">jeemain.nta.nic.in</span>, along with the information bulletin that confirms the 2027 syllabus and pattern. Register with a parent, and check your name matches your 10th certificate and Aadhaar exactly.</div></div>
+      <div class="date"><div class="when">Mid-January<span class="est">usual timing</span></div><div>City intimation slip about 10 days before your exam, then the admit card about 3 days before. Your exact date and shift come from these.</div></div>
+      <div class="date"><div class="when">22–24 & 28–30 Jan 2027<span class="est">tentative, NTA calendar</span></div><div>Session 1. 31 January is the buffer date.</div></div>
+      <div class="date"><div class="when">Feb–Mar 2027<span class="est">estimate</span></div><div>Class 12 board exams begin. Your board usually publishes its timetable a few months ahead.</div></div>
+      <div class="date"><div class="when">April 2027<span class="est">expected</span></div><div>JEE Main Session 2.</div></div>
+    </div>
+  </section>
+
+  <section id="materials" aria-labelledby="matH" data-sum="Past papers, NCERT and PYQ sources.">
+    <div>
+      <p class="eyebrow">What to study from</p>
+      <h2 id="matH">Materials</h2>
+    </div>
+    <div class="cols paths">
+      <div class="card"><h3>Mock bank</h3><p>Real JEE Main papers from 2024, 2025 and 2026. They were set after the 2024 syllabus cut, so they match what you'll sit. Use 2024–25 for part tests and December mocks, and keep 2026 for January.</p></div>
+      <div class="card"><h3>NCERT</h3><p>Class 11 and 12 NCERT. It's the source for inorganic chemistry and biomolecules; JEE lifts sentences from it.</p></div>
+      <div class="card"><h3>Chapter-wise PYQs</h3><p>Your college's chapter-wise PYQ book, or any one PYQ app. Pick one and stick with it.</p></div>
+      <div class="card"><h3>Boards</h3><p>Your board's question bank and model papers. That's for February.</p></div>
+    </div>
+  </section>
+
+  <section id="device" aria-labelledby="deviceH">
+    <div>
+      <p class="eyebrow">This device</p>
+      <h2 id="deviceH">Sync and reminders</h2>
+    </div>
+    <div class="card panel" id="deviceBox"></div>
+  </section>
+
+  <footer>Built in September 2026 around a 12-week syllabus finish. Sources: the official NTA JEE Main syllabus PDF and NTA's published exam calendar. Dates marked expected or estimate will change; update them when the bulletin and your board's timetable come out.</footer>
+</main>
