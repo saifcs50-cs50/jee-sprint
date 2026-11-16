@@ -15,7 +15,7 @@ const SYNC_EVERY_MS = IS_ANDROID ? 120000 : 60000;
 const REMINDER_DAYS = 14;
 const LEAKS = [["silly", "Silly"], ["memory", "Memory"], ["concept", "Concept"], ["time", "Time"], ["unattempted", "Unattempted"]];
 
-/* ---------- local storage ---------- */
+/* local storage */
 function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
 function lsSet(k, v) { try { localStorage.setItem(k, v); return true; } catch (e) { return false; } }
 
@@ -70,7 +70,7 @@ function deviceId() {
   return id;
 }
 
-/* ---------- helpers ---------- */
+/* helpers */
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
 function $(id) { return document.getElementById(id); }
 function st(id) { return chapterState(state, id); }
@@ -89,7 +89,7 @@ function ago(isoOrMs) {
   return short(new Date(t));
 }
 
-/* ---------- chapters ---------- */
+/* chapters */
 function chip(id) {
   const c = CH[id], s = st(id);
   const tags = (c.cls === "12" ? '<span class="tag xii">XII</span>' : "") + '<span class="tag' + (c.tier === "Top" ? " top" : "") + '">' + c.tier + "</span>";
@@ -132,7 +132,7 @@ function renderPace() {
   $("pace").innerHTML = '<div class="pl"><span class="pn">' + r.done + " / " + total + '</span><span>chapters done</span><span class="pv ' + cls + '">' + verdict + '</span></div><span class="muted" style="font-size:.9rem">' + when + (r.skipped.length ? " · " + r.skipped.length + " skipped" : "") + "</span>";
 }
 
-/* ---------- hero, timeline, timetable, weeks ---------- */
+/* hero, timeline, timetable, weeks */
 function renderHero() {
   const t = today0(), left = days(t, EXAM);
   if (left > 0) {
@@ -266,7 +266,7 @@ function updateWeekHeads() {
   setSummary("weeks", (w ? "Week " + w.n + ": " + weekProgress(w, false).text.toLowerCase() + "." : "All 17 weeks.") + (r.behind ? " " + r.behind + " carried over." : ""));
 }
 
-/* ---------- tests (rendering and the form live in tests-ui.js) ---------- */
+/* tests (rendering and the form live in tests-ui.js) */
 let armed = null, armTimer = null;
 function onDelete(btn) {
   const id = btn.dataset.del;
@@ -281,7 +281,7 @@ function onDelete(btn) {
   commit(deleteMock(state, id, Date.now()));
 }
 
-/* ---------- sync ---------- */
+/* sync */
 let syncTimer = null, syncing = false, syncAgain = false, devices = [];
 function setSyncText(text, kind) { const el = $("syncState"); el.textContent = text; el.dataset.kind = kind || ""; setSummary("device", text); }
 
@@ -365,7 +365,7 @@ function queueSync() {
   syncTimer = setTimeout(runSync, SYNC_DEBOUNCE_MS);
 }
 
-/* ---------- phone reminders ---------- */
+/* phone reminders */
 function ln(method, options) { return window.Capacitor.nativePromise("LocalNotifications", method, options || {}); }
 async function cancelReminders() {
   const pending = await ln("getPending");
@@ -409,7 +409,7 @@ async function refreshReminders() {
   renderDevice();
 }
 
-/* ---------- this-device panel ---------- */
+/* this-device panel */
 let macAddresses = [];
 function renderDevice() {
   const box = $("deviceBox");
@@ -456,7 +456,7 @@ async function loadMacInfo() {
   finally { renderDevice(); }
 }
 
-/* ---------- events & boot ---------- */
+/* events & boot */
 document.addEventListener("click", ev => {
   const b = ev.target.closest(".ch");
   if (b && CAN_EDIT) { const id = b.dataset.id, cur = st(id); commit(setChapter(state, id, cur === SKIPPED ? 1 : (cur + 1) % 4, Date.now())); return; }

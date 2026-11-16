@@ -99,7 +99,7 @@ test("normalizeHost rejects things that aren't addresses", async () => {
   }
 });
 
-// ---- days off ----
+// days off
 import { setDayOff, isDayOff, upcomingDaysOff, applyCalendarDaysOff } from "../src/core.mjs";
 
 test("a manual day off is stored, read back and can be undone", () => {
@@ -171,7 +171,7 @@ test("the skipped state (4) survives normalising and merging; 5 does not", () =>
   assert.equal(chapterState(mergeStates(s, setChapter(emptyState(), "m-trig", 0, 5)), "m-trig"), 4);
 });
 
-// ---- tests other than full mocks ----
+// tests other than full mocks
 import { testScore } from "../src/core.mjs";
 const PART = { kind: "test", date: "2026-10-11", paper: "Sunday part test", subject: "X", questions: 25, correct: 15, wrong: 4, plus: 4, minus: 1, leaks: { concept: 3 }, createdAt: "2026-10-11T06:00:00Z" };
 

@@ -64,7 +64,7 @@ function chartSVG(list) {
   return '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Test scores in percent, oldest first: ' + pct.join(", ") + '">' + g + "</svg>";
 }
 
-/* ---------- the form ---------- */
+/* the form */
 function readInt(id, lo, hi, required) {
   const raw = $(id).value.trim();
   if (raw === "") return required ? { err: true } : { v: null };

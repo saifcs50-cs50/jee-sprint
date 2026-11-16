@@ -48,7 +48,7 @@ function renderDaysOff() {
     (days.length > DAYS_OFF_SHOWN ? '<p class="muted small">and ' + (days.length - DAYS_OFF_SHOWN) + " more later.</p>" : "");
 }
 
-/* ---------- Google Calendar (the link lives on the Mac and never leaves it) ---------- */
+/* Google Calendar (the link lives on the Mac and never leaves it) */
 async function calendarCall(body) {
   const init = { headers: { "Content-Type": "application/json", "x-sync-token": JEE_ENV.token } };
   if (body) { init.method = "POST"; init.body = JSON.stringify(body); }

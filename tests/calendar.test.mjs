@@ -100,7 +100,7 @@ test("only Google Calendar iCal links are accepted", () => {
   ]) assert.equal(isGoogleCalendarIcsUrl(bad), false, String(bad));
 });
 
-// ---- class timetable ----
+// class timetable
 import { parseIcsClasses } from "../src/calendar.mjs";
 import { classLabel } from "../src/day-plan.mjs";
 const IST = { ...WINDOW, utcOffsetMinutes: 330 };

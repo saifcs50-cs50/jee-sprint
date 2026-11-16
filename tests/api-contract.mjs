@@ -6,7 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { emptyState, setChapter, addMock } from "../src/core.mjs";
 
-// ctx: { base(), token(), home() } — read lazily, after the suite's before() hook ran.
+// ctx: { base(), token(), home() } (read lazily, after the suite's before() hook ran).
 export function apiContract(label, ctx) {
   const sync = (body, token = ctx.token()) => fetch(ctx.base() + "/api/sync", {
     method: "POST", headers: { "Content-Type": "application/json", "x-sync-token": token },
